@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto One</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Bienvenido a Proyecto One</h1>
+    <form action="/submit" method="post">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre"><br>
+        <label for="deporte">Deporte:</label>
+        <input type="text" id="deporte" name="deporte"><br>
+        <button type="submit">Enviar</button>
+    </form>
+
+    <h2>Lista de Alumnos</h2>
+    <ul>
+        {% for alumno in alumnos %}
+            <li>{{ alumno['Nombre'] }} - {{ alumno['Deporte'] }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+

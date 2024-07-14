@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funcional SF Proyecto</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Bienvenido a Funcional SF Proyecto</h1>
+        <form action="/submit" method="post">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="edad">Edad:</label>
+            <input type="number" id="edad" name="edad" required>
+
+            <label for="email">Correo Electrónico:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" required>
+
+            <label for="deporte">Deporte:</label>
+            <input type="text" id="deporte" name="deporte" required>
+
+            <button type="submit">Enviar</button>
+        </form>
+        <div class="alumnos-list">
+            <h2>Lista de Alumnos</h2>
+            <ul>
+                {% for alumno in alumnos %}
+                <li>{{ alumno['Nombre'] }} - {{ alumno['Edad'] }} - {{ alumno['Email'] }} - {{ alumno['Teléfono'] }} - {{ alumno['Deporte'] }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
